@@ -1,0 +1,25 @@
+services:
+  api:
+    depends_on:
+      - db
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_NAME: mood_tracker
+      DB_PASSWORD: root
+      JWT_SECRET: "962e3690128e16d8506fc15cbf883044ce7a5b4e7412ffafbee3d0c002f3b238"
+  db:
+    image: "mysql"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: mood_tracker
+      MYSQL_DATABASE_PASSWORD: root
+      MYSQL_DATABASE_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root  
+    volumes: 
+      - ./mood_tracker.sql:/docker-entrypoint-initdb.d/mood_tracker.sql
