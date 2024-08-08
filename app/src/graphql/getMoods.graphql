@@ -1,0 +1,7 @@
+query GetMoodsQuery {
+  getMoods {
+    date
+    entry_id
+    mood
+  }
+}

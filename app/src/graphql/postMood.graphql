@@ -1,0 +1,6 @@
+mutation PostMoodMutation($mood: Int!) {
+  postMood(mood: $mood) {
+    mood
+    user_id
+  }
+}

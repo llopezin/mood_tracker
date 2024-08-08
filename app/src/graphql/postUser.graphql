@@ -1,0 +1,3 @@
+mutation PostUserMutation($email: String!, $password: String!) {
+  postUser(email: $email, password: $password)
+}
