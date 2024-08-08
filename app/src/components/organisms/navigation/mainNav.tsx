@@ -1,10 +1,8 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
-import { LogOutButton } from "@/components/molecules/logOutButton/logOutButton";
-import { usePathname } from "next/navigation";
+import { LogOutButton } from "@/components/atoms/logOutButton";
 import cookieNames from "../../../../cookieNames.mjs";
+import NavLink from "./navLink";
 
 export const MainNav = () => {
   const isClient = typeof document !== "undefined";
@@ -14,31 +12,28 @@ export const MainNav = () => {
 
   return (
     <nav className="main-nav card">
-      {loggedIn && <MainNavLink href="/">Home</MainNavLink>}
-      {loggedIn && <MainNavLink href="/registry">Registry</MainNavLink>}
+      {loggedIn && (
+        <NavLink activeClass="main-nav-link--active" href="/">
+          Home
+        </NavLink>
+      )}
+      {loggedIn && (
+        <NavLink activeClass="main-nav-link--active" href="/registry">
+          Registry
+        </NavLink>
+      )}
       {loggedIn && <LogOutButton />}
 
-      {!loggedIn && <MainNavLink href="/login">Log in</MainNavLink>}
-      {!loggedIn && <MainNavLink href="/sign-up">Sign up</MainNavLink>}
+      {!loggedIn && (
+        <NavLink activeClass="main-nav-link--active" href="/login">
+          Log in
+        </NavLink>
+      )}
+      {!loggedIn && (
+        <NavLink activeClass="main-nav-link--active" href="/sign-up">
+          Sign up
+        </NavLink>
+      )}
     </nav>
-  );
-};
-
-const MainNavLink = ({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) => {
-  const active = usePathname();
-
-  return (
-    <Link
-      href={href}
-      className={active === href ? "main-nav-link--active" : ""}
-    >
-      {children}
-    </Link>
   );
 };
