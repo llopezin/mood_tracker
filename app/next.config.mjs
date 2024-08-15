@@ -39,6 +39,17 @@ const nextConfig = {
         permanent: false,
         destination: "/",
       },
+      {
+        source: "/registry",
+        missing: [
+          {
+            type: "cookie",
+            key: cookieNames.token,
+          },
+        ],
+        permanent: false,
+        destination: "/login",
+      },
     ];
   },
 };
