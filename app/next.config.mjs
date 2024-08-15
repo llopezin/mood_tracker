@@ -19,7 +19,7 @@ const nextConfig = {
       },
       {
         source: "/login",
-        missing: [
+        has: [
           {
             type: "cookie",
             key: cookieNames.token,
@@ -30,7 +30,7 @@ const nextConfig = {
       },
       {
         source: "/sign-up",
-        missing: [
+        has: [
           {
             type: "cookie",
             key: cookieNames.token,
