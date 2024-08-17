@@ -1,10 +1,11 @@
+import { LoginForm } from "@/components/organisms/loginForm";
 import React from "react";
-import { PageProps } from "../../../.next/types/app/page";
 
-export default function Page({ params }: PageProps) {
+export default function Page() {
   return (
     <>
-      <h1>{JSON.stringify({ params })}</h1>
+      <h1>Log in</h1>
+      <LoginForm />
     </>
   );
 }
