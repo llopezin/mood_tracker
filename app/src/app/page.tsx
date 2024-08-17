@@ -1,4 +1,4 @@
-import { MoodButton } from "@/components/moodButton";
+import { MoodButton } from "@/components/atoms/moodButton";
 
 //TO DO - create button atom
 export default function Home() {
