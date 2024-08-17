@@ -18,7 +18,7 @@ const initialState: FormState = {
 interface FormProps {
   action: formAction;
   children: ReactElement[];
-  redirectUrl?: string;
+  successRedirectUrl?: string;
 }
 
 type formAction = (
@@ -26,13 +26,13 @@ type formAction = (
   formData: FormData
 ) => Promise<{ message: string; success: boolean }>;
 
-export const Form = ({ action, children, redirectUrl }: FormProps) => {
+export const Form = ({ action, children, successRedirectUrl }: FormProps) => {
   const [{ message, success }, formAction] = useFormState<FormState, FormData>(
     action,
     initialState
   );
 
-  if (success && redirectUrl) redirect(redirectUrl);
+  if (success && successRedirectUrl) redirect(successRedirectUrl);
 
   return (
     <form action={formAction}>
