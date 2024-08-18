@@ -1,5 +1,5 @@
 import { GetMoodsQueryDocument, MoodEntry } from "@/generated/graphql";
-import { query } from "@/service/apollo";
+import { query } from "@/apollo/apollo";
 import React from "react";
 
 export default async function MoodList() {
