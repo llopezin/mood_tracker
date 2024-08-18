@@ -5,7 +5,7 @@ import {
   PostMoodMutationDocument,
   PostUserMutationDocument,
 } from "@/generated/graphql";
-import { getClient } from "@/service/apollo";
+import { getClient } from "@/apollo/apollo";
 import { Mood } from "@/types/mood";
 import { cookies } from "next/headers";
 import cookieNames from "../../cookieNames.mjs";
