@@ -35,10 +35,8 @@ export const Form = ({
   successRedirectUrl,
   bypassValidation = false,
 }: FormProps) => {
-  const [{ message, success, validation }, formAction] = useFormState<
-    FormState,
-    FormData
-  >(action, initialState);
+  const formState = useFormState<FormState, FormData>(action, initialState);
+  const [{ message, success, validation }, formAction] = formState;
 
   if (success && successRedirectUrl) redirect(successRedirectUrl);
 
