@@ -1,22 +1,22 @@
 "use client";
 
-import { handleLoginSubmission } from "@/app/actions";
+import { handleSignUpSubmission } from "@/app/actions";
+import { Input } from "@/components/atoms/input";
+import { Form } from "@/components/molecules/form/form";
 
 import React from "react";
 import { useFormStatus } from "react-dom";
-import { Form } from "../molecules/form";
-import { Input } from "../atoms/input";
 
-export const LoginForm = () => {
+export const SignUpForm = () => {
   const { pending } = useFormStatus();
 
   return (
-    <Form action={handleLoginSubmission} successRedirectUrl="/">
+    <Form action={handleSignUpSubmission} successRedirectUrl="/">
       <Input name="email" label="email" type="email" />
       <Input name="password" label="Password" type="password" />
 
       <button type="submit" disabled={pending}>
-        Log in
+        Sign up
       </button>
     </Form>
   );
