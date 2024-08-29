@@ -22,7 +22,7 @@ export default function RootLayout({
         <header>
           <MainNav />
         </header>
-        <main>{children}</main>
+        <main className="gray-dark text-3xl underline hidden">{children}</main>
       </body>
     </html>
   );
