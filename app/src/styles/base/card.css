@@ -1,0 +1,14 @@
+@layer base {
+  .card {
+    padding: 30px;
+    background: linear-gradient(
+      145deg,
+      rgb(255, 255, 255, 0.8),
+      rgb(255, 255, 255, 0.3) 70%,
+      rgb(255, 255, 255, 0)
+    );
+    backdrop-filter: blur;
+    border-radius: 30px;
+    box-shadow: 2px 5px 10px 2px rgb(0, 0, 0, 0.15);
+  }
+}

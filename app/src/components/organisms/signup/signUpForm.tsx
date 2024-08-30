@@ -12,10 +12,10 @@ export const SignUpForm = () => {
 
   return (
     <Form action={handleSignUpSubmission} successRedirectUrl="/">
-      <Input name="email" label="email" type="email" />
+      <Input name="email" label="Email" type="email" />
       <Input name="password" label="Password" type="password" />
 
-      <button type="submit" disabled={pending}>
+      <button className="button--primary" type="submit" disabled={pending}>
         Sign up
       </button>
     </Form>

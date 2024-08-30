@@ -1,10 +1,9 @@
 import React from "react";
-import styles from "./mainNav.module.scss";
 import Link from "next/link";
 
 export const MainNav = () => {
   return (
-    <nav className={styles.navigation}>
+    <nav className="main-nav card">
       <Link href="/">Home</Link>
       <Link href="/registry">Registry</Link>
       <Link href="/login">Log in</Link>
