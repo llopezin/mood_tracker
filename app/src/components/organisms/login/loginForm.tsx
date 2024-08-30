@@ -12,10 +12,14 @@ export const LoginForm = () => {
 
   return (
     <Form action={handleLoginSubmission} successRedirectUrl="/">
-      <Input name="email" label="email" type="email" />
+      <Input name="email" label="Email" type="email" />
       <Input name="password" label="Password" type="password" />
 
-      <button type="submit" disabled={pending}>
+      <button
+        className="button--primary button--animate-press"
+        type="submit"
+        disabled={pending}
+      >
         Log in
       </button>
     </Form>
