@@ -1,0 +1,13 @@
+.main-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  padding: 20px 30px;
+  border-radius: 0;
+  backdrop-filter: blur(2px);
+  box-shadow: 2px 3px 5px 2px rgb(0, 0, 0, 0.1);
+}

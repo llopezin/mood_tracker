@@ -4,12 +4,14 @@ import { MoodButton } from "@/components/atoms/moodButton";
 export default function Home() {
   return (
     <main>
-      <h1>What is your mood today</h1>
-      <MoodButton mood={1} />
-      <MoodButton mood={2} />
-      <MoodButton mood={3} />
-      <MoodButton mood={4} />
-      <MoodButton mood={5} />
+      <h1>What is your mood today?</h1>
+      <div className="card moods">
+        <MoodButton mood={1}>very sad</MoodButton>
+        <MoodButton mood={2}>sad</MoodButton>
+        <MoodButton mood={3}>content</MoodButton>
+        <MoodButton mood={4}>happy</MoodButton>
+        <MoodButton mood={5}>very happy</MoodButton>
+      </div>
     </main>
   );
 }
