@@ -48,7 +48,7 @@ export async function handleSignUpSubmission(_: FormState, formData: FormData) {
 
     return { message: "Success!", success: true, validation };
   } catch (e: any) {
-    return { message: "Error", success: false, validation };
+    return { message: "Invalid email or password", success: false, validation };
   }
 }
 
@@ -73,7 +73,7 @@ export async function handleLoginSubmission(_: FormState, formData: FormData) {
     };
   } catch (e: any) {
     return {
-      message: "Error",
+      message: "Invalid email or password",
       success: false,
       validation: initialFormValidation,
     };
