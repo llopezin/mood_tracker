@@ -1,0 +1,46 @@
+@import "../styles/index.css";
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+input,
+button {
+  font-family: "Courier New", monospace;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsla(185, 0%, 100%, 1);
+  background-image: radial-gradient(
+      circle at 91% 11%,
+      var(--gradient-yellow) 4%,
+      transparent 37%
+    ),
+    radial-gradient(
+      circle at 66% 37%,
+      var(--gradient-coral) 0%,
+      transparent 63%
+    ),
+    radial-gradient(
+      circle at 36% 87%,
+      var(--gradient-pink) 12%,
+      transparent 63%
+    );
+  background-blend-mode: normal, normal, normal;
+  background-attachment: fixed;
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark-violet);
+}

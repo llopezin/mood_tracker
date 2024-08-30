@@ -5,7 +5,9 @@ export default function Page() {
   return (
     <>
       <h1>Sign up</h1>
-      <SignUpForm />
+      <div className="card form-card">
+        <SignUpForm />
+      </div>
     </>
   );
 }
