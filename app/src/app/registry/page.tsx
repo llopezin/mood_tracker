@@ -1,7 +1,5 @@
-import MoodList from "@/components/molecules/moods/moodList";
+import MoodList from "@/components/organisms/moods/moodList";
 import React, { Suspense } from "react";
-
-//TO DO - Error boundries
 
 export default function Page() {
   return (
