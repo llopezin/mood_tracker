@@ -18,6 +18,8 @@ export const queries = {
   getUser: "SELECT * FROM User WHERE user_id = ?",
   getUserByEmail: "SELECT * FROM User WHERE email = ?",
   getMoods: "SELECT * FROM mood_entry WHERE user_id = ?",
+  getLastMood:
+    "SELECT * FROM mood_entry WHERE user_id = ? ORDER BY date DESC LIMIT 1",
   insertUser:
     "INSERT INTO User (user_id, email, password) VALUES (UUID(), ?, ?)",
   insertMood: `INSERT INTO mood_entry (entry_id, user_id, mood) VALUES (UUID(), ?, ?)`,

@@ -19,10 +19,16 @@ export const typeDefs = `#graphql
     user_id: ID!
   }
 
+  type LastMood  {
+    mood: Int!
+    isFromToday: Boolean!
+  }
+
   type Query {
     getUser(user_id: ID!): User
     loginUser(email: String!, password: String!): String
     getMoods: [MoodEntry]
+    getLastMood: LastMood
   }
 
   type Mutation {

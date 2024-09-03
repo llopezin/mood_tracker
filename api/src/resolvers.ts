@@ -1,3 +1,6 @@
+import { GraphQLError } from "graphql";
+import { getDateWithoutTime } from "./utils/getDateWithtouTime";
+
 const { generateToken } = require("./utils/generateToken");
 const {
   throwExistingUserError,
@@ -7,7 +10,8 @@ const {
 const { queries, executeQuery } = require("./db");
 const bcrypt = require("bcrypt");
 
-const { getMoods, getUserByEmail, insertUser, insertMood } = queries;
+const { getMoods, getUserByEmail, insertUser, insertMood, getLastMood } =
+  queries;
 
 export const resolvers = {
   Query: {
@@ -54,11 +58,29 @@ export const resolvers = {
     },
 
     postMood: async (_: any, { mood }: any, { user_id }) => {
-      const res = await executeQuery(insertMood, [user_id, mood]);
+      try {
+        const lastMoodResponse = await executeQuery(getLastMood, [user_id]);
+        const lastMoodDate = lastMoodResponse[0][0]?.date;
+        const alreadyPostedToday = lastMoodDate
+          ? getDateWithoutTime(lastMoodDate) === getDateWithoutTime(new Date())
+          : false;
 
-      return res[0].serverStatus === 2
-        ? { user_id, mood }
-        : throwInternalError();
+        if (alreadyPostedToday)
+          return new GraphQLError("Reached daily entry limit", {
+            extensions: {
+              code: "REACHED_DAILY_LIMIT",
+            },
+          });
+
+        await executeQuery(insertMood, [user_id, mood]);
+
+        return {
+          mood,
+          user_id,
+        };
+      } catch (e) {
+        return new Error("Internal error");
+      }
     },
   },
 };
