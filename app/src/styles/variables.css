@@ -4,4 +4,7 @@
   --gradient-yellow: rgba(249, 255, 194, 0.66);
   --gradient-coral: rgb(255, 210, 194);
   --gradient-pink: rgb(255, 194, 234);
+  --green: rgb(50, 217, 114);
+  --transparent-green: rgb(50, 217, 114, 0.66);
+  --transparent-red: rgb(255, 0, 0, 0.66);
 }
