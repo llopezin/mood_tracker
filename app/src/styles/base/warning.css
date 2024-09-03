@@ -1,0 +1,16 @@
+.warning--friendly,
+.warning--error {
+  padding: 1rem;
+  border: 2px solid;
+  margin: 1rem 0;
+}
+
+.warning--friendly {
+  border-color: var(--green);
+  background-color: var(--transparent-green);
+}
+
+.warning--error {
+  border-color: var(--red);
+  background-color: var(--transparent-red);
+}
