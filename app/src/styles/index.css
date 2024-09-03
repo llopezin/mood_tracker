@@ -5,6 +5,7 @@
 @import "./base/forms.css";
 @import "./base/card.css";
 @import "./base/button.css";
+@import "./base/warning.css";
 
 /* Components */
 @import "./components/main-nav.css";
