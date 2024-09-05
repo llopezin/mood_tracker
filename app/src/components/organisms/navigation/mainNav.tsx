@@ -1,13 +1,16 @@
 "use client";
 
-import React, { use } from "react";
+import React from "react";
 import Link from "next/link";
 import { LogOutButton } from "@/components/molecules/logOutButton/logOutButton";
 import { usePathname } from "next/navigation";
 import cookieNames from "../../../../cookieNames.mjs";
 
 export const MainNav = () => {
-  const loggedIn = document.cookie.includes(cookieNames.token);
+  const isClient = typeof document !== "undefined";
+  const loggedIn = isClient
+    ? document.cookie.includes(cookieNames.token)
+    : false;
 
   return (
     <nav className="main-nav card">
