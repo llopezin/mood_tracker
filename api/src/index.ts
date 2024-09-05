@@ -8,6 +8,7 @@ const jwt = require("jsonwebtoken");
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  playground: process.env.NODE_ENV === "development",
 });
 
 (async () => {
