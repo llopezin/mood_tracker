@@ -1,24 +1,35 @@
-version: '3.8'
+
 services:
   api:
-    build: /api/
+    build: ./api/
     depends_on:
       - db
     ports:
       - "4000:4000"
     environment:
-      DB_HOST: db
-      DB_USER: root
-      DB_NAME: mood_tracker
-      DB_PASSWORD: root
-      JWT_SECRET: "962e3690128e16d8506fc15cbf883044ce7a5b4e7412ffafbee3d0c002f3b238"
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+      DB_NAME: ${DB_NAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+    restart: on-failure:10
+    
   db:
     image: "mysql"
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: mood_tracker
-      MYSQL_DATABASE_PASSWORD: root
-      MYSQL_DATABASE_USER: root
-      MYSQL_PASSWORD: root
-      MYSQL_ROOT_PASSWORD: root
+      NODE_ENV: development
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_DATABASE_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+  app:
+    build: ./app/
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    restart: on-failure:20
+  
