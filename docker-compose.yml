@@ -1,0 +1,48 @@
+services:
+  api:
+    build: ./api/
+    depends_on:
+      - db
+    ports:
+      - "4000:4000"
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+      DB_NAME: ${DB_NAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+    restart: on-failure:10
+    
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      NODE_ENV: development
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_DATABASE_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - my-datavolume:/var/lib/mysql
+      - ./mood_tracker.sql:/docker-entrypoint-initdb.d/mood_tracker.sql
+  app:
+    build: ./app/
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    restart: on-failure:20
+    
+    # develop:
+    #   watch:
+    #     - action: sync
+    #       path: ./app
+    #       target: /app
+    #       ignore:
+    #         - node_modules/
+    
+volumes:
+  my-datavolume:
+  
