@@ -17,7 +17,7 @@ export const connection = mysql.createConnection({
 export const queries = {
   getUser: "SELECT * FROM User WHERE user_id = ?",
   getUserByEmail: "SELECT * FROM User WHERE email = ?",
-  getMoods: "SELECT * FROM mood_entry WHERE user_id = ?",
+  getMoods: "SELECT * FROM mood_entry WHERE user_id = ? ORDER BY date DESC",
   getLastMood:
     "SELECT * FROM mood_entry WHERE user_id = ? ORDER BY date DESC LIMIT 1",
   insertUser:
