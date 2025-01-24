@@ -29,7 +29,7 @@ const nextConfig = {
         destination: "/",
       },
       {
-        source: "/sign-up",
+        source: "/signup",
         has: [
           {
             type: "cookie",
