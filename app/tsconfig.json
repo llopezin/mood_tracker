@@ -11,6 +11,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "downlevelIteration": true,
     "incremental": true,
     "plugins": [
       {
@@ -22,6 +23,6 @@
       "@/*": ["*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next.config.mjs", "cookieNames.mjs"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next.config.mjs", "src/utils/cookie/cookieNames.mjs"],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,3 @@
-import React from "react";
-
 interface WarningProps {
   children: string;
   type: WarningType;

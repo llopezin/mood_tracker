@@ -1,5 +1,4 @@
-import { SignUpForm } from "@/components/organisms/signup/signUpForm";
-import React from "react";
+import { SignUpForm } from "@/components/signup/signUpForm";
 
 export default function Page() {
   return (

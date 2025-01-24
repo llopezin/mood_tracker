@@ -2,7 +2,6 @@
 
 import { redirect } from "next/navigation";
 
-import React from "react";
 import { useFormState } from "react-dom";
 import { ValidationContext } from "./validation.context";
 import { FormProps, FormState } from "./types";

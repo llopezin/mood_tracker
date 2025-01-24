@@ -1,12 +1,11 @@
 "use client";
 
 import React, { ReactElement } from "react";
-import { Mood } from "@/types/mood";
-import { moodEmojis } from "../moods/utils";
+import { Mood, moodEmojis } from "@/types/mood";
 
 interface MoodButtonProps {
   mood: Mood;
-  children: string | ReactElement;
+  children?: string | ReactElement;
   action: (payload: Mood) => void;
 }
 

@@ -1,4 +1,4 @@
-import MoodList from "@/components/organisms/moods/moodList";
+import MoodList from "@/components/moods/moodList";
 import React, { Suspense } from "react";
 
 export default function Page() {

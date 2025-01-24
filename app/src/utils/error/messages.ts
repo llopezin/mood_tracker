@@ -4,7 +4,7 @@ const messages = {
     defaultError: "Invalid email or password",
   },
   moodSubmission: {
-    error: "Error saving mood",
+    error: "Unexpected error saving mood",
     alreadyPostedMood:
       "You already submitted your mood today, come back tomorrow",
     success: "Great! your mood for today is saved",

@@ -1,4 +1,4 @@
-import MoodSelector from "@/components/organisms/moodSelector/moodSelector";
+import MoodSelector from "@/components/moodSelector/moodSelector";
 
 export interface PostMoodState {
   message: string;

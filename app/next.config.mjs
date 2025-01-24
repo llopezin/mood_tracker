@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-import cookieNames from "./cookieNames.mjs"
+import cookieNames from "./src/utils/cookie/cookieNames.mjs"
 
 
 const nextConfig = {

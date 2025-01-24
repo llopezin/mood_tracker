@@ -1,10 +1,9 @@
 "use client";
 
-import { handleLoginSubmission } from "@/app/actions";
+import { handleLoginSubmission } from "@/actions/login";
 import { Input } from "@/components/atoms/input";
-import { Form } from "@/components/molecules/form/form";
+import { Form } from "@/components/form/form";
 
-import React from "react";
 import { useFormStatus } from "react-dom";
 
 export const LoginForm = () => {

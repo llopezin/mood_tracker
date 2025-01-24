@@ -1,4 +1,4 @@
-import { FormValidation, ZodIssue } from "@/components/molecules/form/types";
+import { FormValidation, ZodIssue } from "@/components/form/types";
 
 //TODO: Implement nested fields validation
 export const transfromZodValidation = (issues: ZodIssue[]): FormValidation => {

@@ -1,12 +1,13 @@
-import { GetMoodsQueryDocument, MoodEntry } from "@/generated/graphql";
+import { GetMoodsQueryDocument } from "@/generated/graphql";
 import { query } from "@/apollo/apollo";
-import React from "react";
-import { moodEmojis } from "./utils";
+import { MoodListEntry, moodEmojis } from "@/types/mood";
 
 export default async function MoodList() {
   const { data } = await query({
     query: GetMoodsQueryDocument,
   });
+
+  data.getMoods?.map((entry) => ({ mood: entry?.mood, date: entry?.date }));
 
   return (
     <>
@@ -16,8 +17,6 @@ export default async function MoodList() {
     </>
   );
 }
-
-type MoodListEntry = Omit<MoodEntry, "user_id">;
 
 const MoodListItem = ({ date, mood }: MoodListEntry) => {
   const emoji = moodEmojis[mood as keyof typeof moodEmojis];
