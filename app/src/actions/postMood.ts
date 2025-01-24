@@ -10,10 +10,8 @@ import messages from "@/utils/error/messages";
 import { PostMoodState } from "@/app/page";
 
 export async function handleMoodSubmission(_: PostMoodState, mood: Mood) {
-  console.log("mood: ", mood);
-  console.log("mood type: ", typeof mood);
   try {
-    const res = await getClient().mutate({
+    await getClient().mutate({
       mutation: PostMoodMutationDocument,
       variables: { mood },
     });
