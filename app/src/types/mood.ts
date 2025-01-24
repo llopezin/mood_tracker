@@ -19,6 +19,6 @@ const moodNames: MoodMap = new Map([
   [5, "very happy"],
 ]);
 
-type MoodListEntry = Omit<MoodEntry, "user_id">;
+type MoodListEntry = Omit<MoodEntry, "user_id" | "mood"> & { mood: Mood };
 
 export { moodEmojis, moodNames, type MoodListEntry, type Mood };

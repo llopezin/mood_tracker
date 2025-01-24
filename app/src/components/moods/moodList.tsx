@@ -19,7 +19,7 @@ export default async function MoodList() {
 }
 
 const MoodListItem = ({ date, mood }: MoodListEntry) => {
-  const emoji = moodEmojis[mood as keyof typeof moodEmojis];
+  const emoji = moodEmojis.get(mood);
   const readableDate = new Date(Number(date)).toLocaleDateString("en-US", {
     weekday: "long",
     year: "numeric",

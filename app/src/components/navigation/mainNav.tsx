@@ -2,7 +2,7 @@
 
 import cookieNames from "../../utils/cookie/cookieNames.mjs";
 import UserNav from "./userNav";
-import NonUserNav from "./nonUserNav";
+import NonUserNav from "./nonUserNav.jsx";
 import { useEffect, useState } from "react";
 
 export const MainNav = () => {
