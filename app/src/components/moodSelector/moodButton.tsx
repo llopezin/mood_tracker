@@ -17,7 +17,7 @@ export const MoodButton = ({ mood, children, action }: MoodButtonProps) => {
       className="button-mood button--animate-press"
     >
       <span className="sr-only">{children}</span>
-      {moodEmojis[mood]}
+      {moodEmojis.get(mood)}
     </button>
   );
 };
