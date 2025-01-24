@@ -22,10 +22,9 @@ services:
       MYSQL_DATABASE: ${DB_NAME}
       MYSQL_DATABASE_PASSWORD: ${DB_PASSWORD}
       MYSQL_DATABASE_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
-      - my-datavolume:/var/lib/mysql
       - ./mood_tracker.sql:/docker-entrypoint-initdb.d/mood_tracker.sql
   app:
     build: ./app/
@@ -35,13 +34,13 @@ services:
       - api
     restart: on-failure:20
     
-    # develop:
-    #   watch:
-    #     - action: sync
-    #       path: ./app
-    #       target: /app
-    #       ignore:
-    #         - node_modules/
+    develop:
+      watch:
+        - action: sync
+          path: ./app
+          target: /app
+          ignore:
+            - node_modules/
     
 volumes:
   my-datavolume:
