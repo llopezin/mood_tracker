@@ -1,0 +1,46 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(
+      circle at 91% 11%,
+      var(--gradient-yellow) 4%,
+      transparent 37%
+    ),
+    radial-gradient(
+      circle at 66% 37%,
+      var(--gradient-coral) 2%,
+      transparent 63%
+    ),
+    radial-gradient(
+      circle at 36% 87%,
+      var(--gradient-pink) 12%,
+      transparent 63%
+    ),
+    radial-gradient(circle at 90% 7%, var(--gradient-pink) 20%, transparent 30%);
+  background-size: 300%;
+  background-position: 0% 0%, 100% 100%, 50% 50%;
+  background-repeat: no-repeat;
+  animation: animate-gradients 8s infinite ease-in-out;
+  background-attachment: fixed;
+}
+
+@keyframes animate-gradients {
+  0% {
+    background-size: 300%;
+    background-position: 25% 0%, 100% 100%, 50% 50%;
+  }
+  25% {
+    background-position: 100% 100%, 100% 75%, 50% 50%;
+    background-size: 250%;
+  }
+  75% {
+    background-size: 150%;
+    background-position: 20% 0%, 50% 50%, 100% 70%;
+  }
+  100% {
+    background-size: 300%;
+    background-position: 50% 50%, 100% 100%, 50% 50%;
+  }
+}
