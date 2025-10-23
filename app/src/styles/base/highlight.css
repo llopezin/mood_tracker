@@ -1,0 +1,33 @@
+.highlight {
+  position: relative;
+}
+
+.highlight:hover::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: inline-block;
+  background: linear-gradient(
+      100deg,
+      #ffafd400 1%,
+      #ffafd4 2.5%,
+      #ffafd480 5.7%,
+      #ffafd41a 93%,
+      #ffafd4b4 95%,
+      #ffafd400 98%
+    ),
+    linear-gradient(182deg, #ffafd400, #ffafd44d 8%, #ffafd400 15%);
+  animation: highlightAnimation 0.3s ease-in-out;
+}
+
+@keyframes highlightAnimation {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}

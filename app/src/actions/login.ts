@@ -1,8 +1,9 @@
 "use server";
 
 import { getClient } from "@/apollo/apollo";
-import { initialFormValidation } from "@/components/form/initializers";
-import { FormState } from "@/components/form/types";
+import { initialFormValidation } from "@/components/design-system/form/initializers";
+import { FormState } from "@/components/design-system/form/types";
+
 import { LoginQueryDocument } from "@/generated/graphql";
 import cookieNames from "@/utils/cookie/cookieNames.mjs";
 import messages from "@/utils/error/messages";

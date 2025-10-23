@@ -1,0 +1,6 @@
+query GetMoodsByMonthQuery($month: Int!, $year: Int!) {
+  getMoodsByMonth(month: $month, year: $year) {
+    date
+    mood
+  }
+}

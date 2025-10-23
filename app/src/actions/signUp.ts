@@ -1,10 +1,13 @@
 "use server";
 
 import { getClient } from "@/apollo/apollo";
-import { initialFormValidation } from "@/components/form/initializers";
-import { FormState, FormValidation } from "@/components/form/types";
-import { transfromZodValidation } from "@/components/form/utils/transformZodValidation";
-import { SignUpValidation } from "@/components/signup/signUpFormValidation";
+import { initialFormValidation } from "@/components/design-system/form/initializers";
+import {
+  FormState,
+  FormValidation,
+} from "@/components/design-system/form/types";
+import { transfromZodValidation } from "@/components/design-system/form/utils/transformZodValidation";
+import { SignUpValidation } from "@/components/features/signup/signUpFormValidation";
 import { PostUserMutationDocument } from "@/generated/graphql";
 import cookieNames from "@/utils/cookie/cookieNames.mjs";
 import messages from "@/utils/error/messages";

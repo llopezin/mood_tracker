@@ -28,6 +28,9 @@ export const typeDefs = `#graphql
     getUser(user_id: ID!): User
     loginUser(email: String!, password: String!): String
     getMoods: [MoodEntry]
+    getMoodsByDate(start: String!, end: String!): [MoodEntry]
+    getMoodsByMonth(month: Int!, year: Int!): [MoodEntry]
+    getTodayMood: MoodEntry
     getLastMood: LastMood
   }
 

@@ -14,6 +14,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  */
 const documents = {
     "query GetMoodsQuery {\n  getMoods {\n    date\n    entry_id\n    mood\n  }\n}": types.GetMoodsQueryDocument,
+    "query GetMoodsByMonthQuery($month: Int!, $year: Int!) {\n  getMoodsByMonth(month: $month, year: $year) {\n    date\n    mood\n  }\n}": types.GetMoodsByMonthQueryDocument,
     "query LoginQuery($email: String!, $password: String!) {\n  loginUser(email: $email, password: $password)\n}": types.LoginQueryDocument,
     "mutation PostMoodMutation($mood: Int!) {\n  postMood(mood: $mood) {\n    mood\n    user_id\n  }\n}": types.PostMoodMutationDocument,
     "mutation PostUserMutation($email: String!, $password: String!) {\n  postUser(email: $email, password: $password)\n}": types.PostUserMutationDocument,
@@ -37,6 +38,10 @@ export function gql(source: string): unknown;
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "query GetMoodsQuery {\n  getMoods {\n    date\n    entry_id\n    mood\n  }\n}"): (typeof documents)["query GetMoodsQuery {\n  getMoods {\n    date\n    entry_id\n    mood\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "query GetMoodsByMonthQuery($month: Int!, $year: Int!) {\n  getMoodsByMonth(month: $month, year: $year) {\n    date\n    mood\n  }\n}"): (typeof documents)["query GetMoodsByMonthQuery($month: Int!, $year: Int!) {\n  getMoodsByMonth(month: $month, year: $year) {\n    date\n    mood\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
