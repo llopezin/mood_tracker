@@ -57,8 +57,23 @@ export type Query = {
   __typename?: 'Query';
   getLastMood?: Maybe<LastMood>;
   getMoods?: Maybe<Array<Maybe<MoodEntry>>>;
+  getMoodsByDate?: Maybe<Array<Maybe<MoodEntry>>>;
+  getMoodsByMonth?: Maybe<Array<Maybe<MoodEntry>>>;
+  getTodayMood?: Maybe<MoodEntry>;
   getUser?: Maybe<User>;
   loginUser?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type QueryGetMoodsByDateArgs = {
+  end: Scalars['String']['input'];
+  start: Scalars['String']['input'];
+};
+
+
+export type QueryGetMoodsByMonthArgs = {
+  month: Scalars['Int']['input'];
+  year: Scalars['Int']['input'];
 };
 
 
@@ -83,6 +98,14 @@ export type GetMoodsQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetMoodsQueryQuery = { __typename?: 'Query', getMoods?: Array<{ __typename?: 'MoodEntry', date: string, entry_id: string, mood: number } | null> | null };
+
+export type GetMoodsByMonthQueryQueryVariables = Exact<{
+  month: Scalars['Int']['input'];
+  year: Scalars['Int']['input'];
+}>;
+
+
+export type GetMoodsByMonthQueryQuery = { __typename?: 'Query', getMoodsByMonth?: Array<{ __typename?: 'MoodEntry', date: string, mood: number } | null> | null };
 
 export type LoginQueryQueryVariables = Exact<{
   email: Scalars['String']['input'];
@@ -109,6 +132,7 @@ export type PostUserMutationMutation = { __typename?: 'Mutation', postUser?: str
 
 
 export const GetMoodsQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetMoodsQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getMoods"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"entry_id"}},{"kind":"Field","name":{"kind":"Name","value":"mood"}}]}}]}}]} as unknown as DocumentNode<GetMoodsQueryQuery, GetMoodsQueryQueryVariables>;
+export const GetMoodsByMonthQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetMoodsByMonthQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"month"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"year"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getMoodsByMonth"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"month"},"value":{"kind":"Variable","name":{"kind":"Name","value":"month"}}},{"kind":"Argument","name":{"kind":"Name","value":"year"},"value":{"kind":"Variable","name":{"kind":"Name","value":"year"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"date"}},{"kind":"Field","name":{"kind":"Name","value":"mood"}}]}}]}}]} as unknown as DocumentNode<GetMoodsByMonthQueryQuery, GetMoodsByMonthQueryQueryVariables>;
 export const LoginQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"LoginQuery"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"password"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"loginUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}},{"kind":"Argument","name":{"kind":"Name","value":"password"},"value":{"kind":"Variable","name":{"kind":"Name","value":"password"}}}]}]}}]} as unknown as DocumentNode<LoginQueryQuery, LoginQueryQueryVariables>;
 export const PostMoodMutationDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"PostMoodMutation"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"mood"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"postMood"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"mood"},"value":{"kind":"Variable","name":{"kind":"Name","value":"mood"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"mood"}},{"kind":"Field","name":{"kind":"Name","value":"user_id"}}]}}]}}]} as unknown as DocumentNode<PostMoodMutationMutation, PostMoodMutationMutationVariables>;
 export const PostUserMutationDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"PostUserMutation"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"email"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"password"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"postUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"email"},"value":{"kind":"Variable","name":{"kind":"Name","value":"email"}}},{"kind":"Argument","name":{"kind":"Name","value":"password"},"value":{"kind":"Variable","name":{"kind":"Name","value":"password"}}}]}]}}]} as unknown as DocumentNode<PostUserMutationMutation, PostUserMutationMutationVariables>;

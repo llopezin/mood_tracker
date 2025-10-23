@@ -10,22 +10,25 @@ const {
 const { queries, executeQuery } = require("./db");
 const bcrypt = require("bcrypt");
 
-const { getMoods, getUserByEmail, insertUser, insertMood, getLastMood } =
-  queries;
+const {
+  getMoods,
+  getMoodsByDate,
+  getUserByEmail,
+  insertUser,
+  insertMood,
+  getLastMood,
+} = queries;
 
 export const resolvers = {
   Query: {
     loginUser: async (_: any, { email, password }: any) => {
       const [user] = await executeQuery(getUserByEmail, [email]);
 
-      // Throw error if user doesn't exist
       if (user.length === 0) return throwLoginError();
 
-      // Throw error if password is incorrect
       const match = await bcrypt.compare(password, user[0].password);
       if (!match) return throwLoginError();
 
-      // On success return token
       return generateToken({ user_id: user[0].user_id });
     },
 
@@ -34,19 +37,42 @@ export const resolvers = {
       const [rows] = await executeQuery(getMoods, [user_id]);
       return rows;
     },
+
+    getMoodsByDate: async (_: any, { start, end }: any, context) => {
+      const { user_id } = context;
+      const [rows] = await executeQuery(getMoodsByDate, [user_id, start, end]);
+      return rows;
+    },
+
+    getMoodsByMonth: async (_: any, { month, year }: any, context) => {
+      const { user_id } = context;
+      const start = new Date(year, month - 1, 1);
+      const end = new Date(year, month, 0, 23, 59, 59, 999);
+
+      const [rows] = await executeQuery(getMoodsByDate, [user_id, start, end]);
+      return rows;
+    },
+
+    getTodayMood: async (_: any, __: any, context) => {
+      const { user_id } = context;
+      const start = new Date();
+      start.setHours(0, 0, 0, 0);
+      const end = new Date();
+      end.setHours(23, 59, 59, 999);
+
+      const [rows] = await executeQuery(getMoodsByDate, [user_id, start, end]);
+      return rows[0] || null;
+    },
   },
 
   Mutation: {
     postUser: async (_: any, { email, password }: any) => {
-      // Thow error if user exists
       const [existingUser] = await executeQuery(getUserByEmail, [email]);
       if (existingUser.length > 0) throwExistingUserError();
 
-      // Create user
       const hashedPassword = await bcrypt.hash(password, 10);
       const res = await executeQuery(insertUser, [email, hashedPassword]);
 
-      // On success return token
       if (res[0].serverStatus === 2) {
         const [newUser] = await executeQuery(getUserByEmail, [email]);
         const { user_id } = newUser[0];

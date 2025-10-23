@@ -1,4 +1,4 @@
-import MoodList from "@/components/moods/moodList";
+import MoodList from "@/components/features/mood-list/moodList";
 import React, { Suspense } from "react";
 
 export default function Page() {

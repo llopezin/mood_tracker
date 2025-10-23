@@ -7,7 +7,13 @@
 @import "./base/card.css";
 @import "./base/forms.css";
 @import "./base/link.css";
+@import "./base/warning.css";
+@import "./base/highlight.css";
 
 /* Components */
-@import "./components/main-nav.css";
-@import "./components/moods.css";
+@import "./components/features/navigation/main-nav.css";
+@import "./components/features/monthly-chart/month-selector.css";
+@import "./components/design-system/moods.css";
+
+/* Layouts */
+@import "./layouts/fs-center-absolute-child.css";

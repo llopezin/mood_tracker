@@ -2,12 +2,12 @@
 
 import { Mood } from "@/types/mood";
 import { errorCodes } from "@/utils/error/codes";
-import { WarningType } from "@/components/atoms/warning";
 import { getClient } from "@/apollo/apollo";
 import { PostMoodMutationDocument } from "@/generated/graphql";
 import { revalidatePath } from "next/cache";
 import messages from "@/utils/error/messages";
 import { PostMoodState } from "@/app/page";
+import { WarningType } from "@/components/design-system/warning/types";
 
 export async function handleMoodSubmission(_: PostMoodState, mood: Mood) {
   try {
